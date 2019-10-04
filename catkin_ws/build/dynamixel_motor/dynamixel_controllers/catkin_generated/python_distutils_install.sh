@@ -14,20 +14,20 @@ fi
 
 echo_and_run() { echo "+ $@" ; "$@" ; }
 
-echo_and_run cd "/fs03/share/users/florent.cadot/home/catkin_ws/src/dynamixel_motor/dynamixel_controllers"
+echo_and_run cd "/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/src/dynamixel_motor/dynamixel_controllers"
 
 # snsure that Python install destination exists
-echo_and_run mkdir -p "$DESTDIR/fs03/share/users/florent.cadot/home/catkin_ws/install/lib/python2.7/dist-packages"
+echo_and_run mkdir -p "$DESTDIR/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/install/lib/python2.7/dist-packages"
 
 # Note that PYTHONPATH is pulled from the environment to support installing
 # into one location when some dependencies were installed in another
 # location, #123.
 echo_and_run /usr/bin/env \
-    PYTHONPATH="/fs03/share/users/florent.cadot/home/catkin_ws/install/lib/python2.7/dist-packages:/fs03/share/users/florent.cadot/home/catkin_ws/build/lib/python2.7/dist-packages:$PYTHONPATH" \
-    CATKIN_BINARY_DIR="/fs03/share/users/florent.cadot/home/catkin_ws/build" \
+    PYTHONPATH="/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/install/lib/python2.7/dist-packages:/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/build/lib/python2.7/dist-packages:$PYTHONPATH" \
+    CATKIN_BINARY_DIR="/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/build" \
     "/usr/bin/python" \
-    "/fs03/share/users/florent.cadot/home/catkin_ws/src/dynamixel_motor/dynamixel_controllers/setup.py" \
-    build --build-base "/fs03/share/users/florent.cadot/home/catkin_ws/build/dynamixel_motor/dynamixel_controllers" \
+    "/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/src/dynamixel_motor/dynamixel_controllers/setup.py" \
+    build --build-base "/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/build/dynamixel_motor/dynamixel_controllers" \
     install \
     $DESTDIR_ARG \
-    --install-layout=deb --prefix="/fs03/share/users/florent.cadot/home/catkin_ws/install" --install-scripts="/fs03/share/users/florent.cadot/home/catkin_ws/install/bin"
+    --install-layout=deb --prefix="/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/install" --install-scripts="/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/install/bin"

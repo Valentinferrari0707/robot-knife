@@ -1,8 +1,8 @@
-# Install script for directory: /fs03/share/users/florent.cadot/home/catkin_ws/src/mini_projet
+# Install script for directory: /fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/src/mini_projet
 
 # Set the install prefix
 IF(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  SET(CMAKE_INSTALL_PREFIX "/fs03/share/users/florent.cadot/home/catkin_ws/install")
+  SET(CMAKE_INSTALL_PREFIX "/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/install")
 ENDIF(NOT DEFINED CMAKE_INSTALL_PREFIX)
 STRING(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -33,17 +33,17 @@ IF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 ENDIF(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/fs03/share/users/florent.cadot/home/catkin_ws/build/mini_projet/catkin_generated/installspace/mini_projet.pc")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/build/mini_projet/catkin_generated/installspace/mini_projet.pc")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
   FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/mini_projet/cmake" TYPE FILE FILES
-    "/fs03/share/users/florent.cadot/home/catkin_ws/build/mini_projet/catkin_generated/installspace/mini_projetConfig.cmake"
-    "/fs03/share/users/florent.cadot/home/catkin_ws/build/mini_projet/catkin_generated/installspace/mini_projetConfig-version.cmake"
+    "/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/build/mini_projet/catkin_generated/installspace/mini_projetConfig.cmake"
+    "/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/build/mini_projet/catkin_generated/installspace/mini_projetConfig-version.cmake"
     )
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 
 IF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
-  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/mini_projet" TYPE FILE FILES "/fs03/share/users/florent.cadot/home/catkin_ws/src/mini_projet/package.xml")
+  FILE(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/mini_projet" TYPE FILE FILES "/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/src/mini_projet/package.xml")
 ENDIF(NOT CMAKE_INSTALL_COMPONENT OR "${CMAKE_INSTALL_COMPONENT}" STREQUAL "Unspecified")
 

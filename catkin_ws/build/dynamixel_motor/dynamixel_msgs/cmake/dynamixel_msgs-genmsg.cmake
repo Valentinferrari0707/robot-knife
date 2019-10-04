@@ -2,7 +2,7 @@
 
 message(STATUS "dynamixel_msgs: 3 messages, 0 services")
 
-set(MSG_I_FLAGS "-Idynamixel_msgs:/fs03/share/users/florent.cadot/home/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg;-Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg")
+set(MSG_I_FLAGS "-Idynamixel_msgs:/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg;-Istd_msgs:/opt/ros/indigo/share/std_msgs/cmake/../msg")
 
 # Find all generators
 find_package(gencpp REQUIRED)
@@ -15,19 +15,19 @@ add_custom_target(dynamixel_msgs_generate_messages ALL)
 
 
 
-get_filename_component(_filename "/fs03/share/users/florent.cadot/home/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/MotorState.msg" NAME_WE)
+get_filename_component(_filename "/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/MotorStateList.msg" NAME_WE)
 add_custom_target(_dynamixel_msgs_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "dynamixel_msgs" "/fs03/share/users/florent.cadot/home/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/MotorState.msg" ""
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "dynamixel_msgs" "/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/MotorStateList.msg" "dynamixel_msgs/MotorState"
 )
 
-get_filename_component(_filename "/fs03/share/users/florent.cadot/home/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/MotorStateList.msg" NAME_WE)
+get_filename_component(_filename "/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/JointState.msg" NAME_WE)
 add_custom_target(_dynamixel_msgs_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "dynamixel_msgs" "/fs03/share/users/florent.cadot/home/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/MotorStateList.msg" "dynamixel_msgs/MotorState"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "dynamixel_msgs" "/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/JointState.msg" "std_msgs/Header"
 )
 
-get_filename_component(_filename "/fs03/share/users/florent.cadot/home/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/JointState.msg" NAME_WE)
+get_filename_component(_filename "/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/MotorState.msg" NAME_WE)
 add_custom_target(_dynamixel_msgs_generate_messages_check_deps_${_filename}
-  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "dynamixel_msgs" "/fs03/share/users/florent.cadot/home/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/JointState.msg" "std_msgs/Header"
+  COMMAND ${CATKIN_ENV} ${PYTHON_EXECUTABLE} ${GENMSG_CHECK_DEPS_SCRIPT} "dynamixel_msgs" "/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/MotorState.msg" ""
 )
 
 #
@@ -37,21 +37,21 @@ add_custom_target(_dynamixel_msgs_generate_messages_check_deps_${_filename}
 ### Section generating for lang: gencpp
 ### Generating Messages
 _generate_msg_cpp(dynamixel_msgs
-  "/fs03/share/users/florent.cadot/home/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/MotorStateList.msg"
+  "/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/MotorStateList.msg"
   "${MSG_I_FLAGS}"
-  "/fs03/share/users/florent.cadot/home/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/MotorState.msg"
+  "/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/MotorState.msg"
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/dynamixel_msgs
 )
 _generate_msg_cpp(dynamixel_msgs
-  "/fs03/share/users/florent.cadot/home/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/MotorState.msg"
-  "${MSG_I_FLAGS}"
-  ""
-  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/dynamixel_msgs
-)
-_generate_msg_cpp(dynamixel_msgs
-  "/fs03/share/users/florent.cadot/home/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/JointState.msg"
+  "/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/JointState.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/dynamixel_msgs
+)
+_generate_msg_cpp(dynamixel_msgs
+  "/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/MotorState.msg"
+  "${MSG_I_FLAGS}"
+  ""
   ${CATKIN_DEVEL_PREFIX}/${gencpp_INSTALL_DIR}/dynamixel_msgs
 )
 
@@ -69,11 +69,11 @@ add_custom_target(dynamixel_msgs_generate_messages_cpp
 add_dependencies(dynamixel_msgs_generate_messages dynamixel_msgs_generate_messages_cpp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/fs03/share/users/florent.cadot/home/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/MotorState.msg" NAME_WE)
+get_filename_component(_filename "/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/MotorStateList.msg" NAME_WE)
 add_dependencies(dynamixel_msgs_generate_messages_cpp _dynamixel_msgs_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/fs03/share/users/florent.cadot/home/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/MotorStateList.msg" NAME_WE)
+get_filename_component(_filename "/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/JointState.msg" NAME_WE)
 add_dependencies(dynamixel_msgs_generate_messages_cpp _dynamixel_msgs_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/fs03/share/users/florent.cadot/home/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/JointState.msg" NAME_WE)
+get_filename_component(_filename "/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/MotorState.msg" NAME_WE)
 add_dependencies(dynamixel_msgs_generate_messages_cpp _dynamixel_msgs_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -86,21 +86,21 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS dynamixel_msgs_generate_messages_cp
 ### Section generating for lang: genlisp
 ### Generating Messages
 _generate_msg_lisp(dynamixel_msgs
-  "/fs03/share/users/florent.cadot/home/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/MotorStateList.msg"
+  "/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/MotorStateList.msg"
   "${MSG_I_FLAGS}"
-  "/fs03/share/users/florent.cadot/home/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/MotorState.msg"
+  "/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/MotorState.msg"
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/dynamixel_msgs
 )
 _generate_msg_lisp(dynamixel_msgs
-  "/fs03/share/users/florent.cadot/home/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/MotorState.msg"
-  "${MSG_I_FLAGS}"
-  ""
-  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/dynamixel_msgs
-)
-_generate_msg_lisp(dynamixel_msgs
-  "/fs03/share/users/florent.cadot/home/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/JointState.msg"
+  "/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/JointState.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/dynamixel_msgs
+)
+_generate_msg_lisp(dynamixel_msgs
+  "/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/MotorState.msg"
+  "${MSG_I_FLAGS}"
+  ""
   ${CATKIN_DEVEL_PREFIX}/${genlisp_INSTALL_DIR}/dynamixel_msgs
 )
 
@@ -118,11 +118,11 @@ add_custom_target(dynamixel_msgs_generate_messages_lisp
 add_dependencies(dynamixel_msgs_generate_messages dynamixel_msgs_generate_messages_lisp)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/fs03/share/users/florent.cadot/home/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/MotorState.msg" NAME_WE)
+get_filename_component(_filename "/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/MotorStateList.msg" NAME_WE)
 add_dependencies(dynamixel_msgs_generate_messages_lisp _dynamixel_msgs_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/fs03/share/users/florent.cadot/home/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/MotorStateList.msg" NAME_WE)
+get_filename_component(_filename "/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/JointState.msg" NAME_WE)
 add_dependencies(dynamixel_msgs_generate_messages_lisp _dynamixel_msgs_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/fs03/share/users/florent.cadot/home/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/JointState.msg" NAME_WE)
+get_filename_component(_filename "/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/MotorState.msg" NAME_WE)
 add_dependencies(dynamixel_msgs_generate_messages_lisp _dynamixel_msgs_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility
@@ -135,21 +135,21 @@ list(APPEND ${PROJECT_NAME}_EXPORTED_TARGETS dynamixel_msgs_generate_messages_li
 ### Section generating for lang: genpy
 ### Generating Messages
 _generate_msg_py(dynamixel_msgs
-  "/fs03/share/users/florent.cadot/home/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/MotorStateList.msg"
+  "/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/MotorStateList.msg"
   "${MSG_I_FLAGS}"
-  "/fs03/share/users/florent.cadot/home/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/MotorState.msg"
+  "/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/MotorState.msg"
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/dynamixel_msgs
 )
 _generate_msg_py(dynamixel_msgs
-  "/fs03/share/users/florent.cadot/home/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/MotorState.msg"
-  "${MSG_I_FLAGS}"
-  ""
-  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/dynamixel_msgs
-)
-_generate_msg_py(dynamixel_msgs
-  "/fs03/share/users/florent.cadot/home/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/JointState.msg"
+  "/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/JointState.msg"
   "${MSG_I_FLAGS}"
   "/opt/ros/indigo/share/std_msgs/cmake/../msg/Header.msg"
+  ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/dynamixel_msgs
+)
+_generate_msg_py(dynamixel_msgs
+  "/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/MotorState.msg"
+  "${MSG_I_FLAGS}"
+  ""
   ${CATKIN_DEVEL_PREFIX}/${genpy_INSTALL_DIR}/dynamixel_msgs
 )
 
@@ -167,11 +167,11 @@ add_custom_target(dynamixel_msgs_generate_messages_py
 add_dependencies(dynamixel_msgs_generate_messages dynamixel_msgs_generate_messages_py)
 
 # add dependencies to all check dependencies targets
-get_filename_component(_filename "/fs03/share/users/florent.cadot/home/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/MotorState.msg" NAME_WE)
+get_filename_component(_filename "/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/MotorStateList.msg" NAME_WE)
 add_dependencies(dynamixel_msgs_generate_messages_py _dynamixel_msgs_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/fs03/share/users/florent.cadot/home/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/MotorStateList.msg" NAME_WE)
+get_filename_component(_filename "/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/JointState.msg" NAME_WE)
 add_dependencies(dynamixel_msgs_generate_messages_py _dynamixel_msgs_generate_messages_check_deps_${_filename})
-get_filename_component(_filename "/fs03/share/users/florent.cadot/home/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/JointState.msg" NAME_WE)
+get_filename_component(_filename "/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/src/dynamixel_motor/dynamixel_msgs/msg/MotorState.msg" NAME_WE)
 add_dependencies(dynamixel_msgs_generate_messages_py _dynamixel_msgs_generate_messages_check_deps_${_filename})
 
 # target for backward compatibility

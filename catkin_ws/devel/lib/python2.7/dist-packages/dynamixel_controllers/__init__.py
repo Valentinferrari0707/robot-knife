@@ -7,7 +7,7 @@ from sys import path as sys_path
 
 from pkgutil import extend_path
 
-__extended_path = "/fs03/share/users/florent.cadot/home/catkin_ws/src/dynamixel_motor/dynamixel_controllers/src".split(";")
+__extended_path = "/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/src/dynamixel_motor/dynamixel_controllers/src".split(";")
 for p in reversed(__extended_path):
     sys_path.insert(0, p)
     del p
