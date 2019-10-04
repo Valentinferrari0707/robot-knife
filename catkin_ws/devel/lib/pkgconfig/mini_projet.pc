@@ -1,0 +1,8 @@
+prefix=/fs03/share/users/florent.cadot/home/catkin_ws/devel
+
+Name: mini_projet
+Description: Description of mini_projet
+Version: 0.0.0
+Cflags: 
+Libs: -L/fs03/share/users/florent.cadot/home/catkin_ws/devel/lib 
+Requires: 

@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /fs03/share/users/florent.cadot/home/catkin_ws/devel/setup.sh

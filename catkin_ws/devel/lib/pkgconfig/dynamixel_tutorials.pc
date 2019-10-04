@@ -1,0 +1,8 @@
+prefix=/fs03/share/users/florent.cadot/home/catkin_ws/devel
+
+Name: dynamixel_tutorials
+Description: Description of dynamixel_tutorials
+Version: 0.4.1
+Cflags: 
+Libs: -L/fs03/share/users/florent.cadot/home/catkin_ws/devel/lib 
+Requires: dynamixel_controllers
