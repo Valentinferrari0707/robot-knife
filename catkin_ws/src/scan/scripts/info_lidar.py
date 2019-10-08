@@ -7,48 +7,71 @@ from sensor_msgs.msg import LaserScan
 
 class Scan:
     def __init__(self):
-        self.configuration_ros()
-        # Gere toute la config de ROS
-
-        self.flag= False
+        # Gere toute la config de ROS (initialisation du node)
+        rospy.init_node('scan_values', anonymous=True)
+        self.flag=False  
+        rospy.sleep(2.)        
         print "init OK"
-        self.tab_table = ''
-        print "then ?"
-
-    def configuration_ros(self):
-        rospy.init_node('listener', anonymous=True)
         rospy.Subscriber('/scan', LaserScan , self.callback)
-        #self.pub = rospy.Publisher('/scan', LaserScan, queue_size=1)
-        #self.pub = rospy.Publisher('/min_dist', Float32, queue_size=1)
 
-        
+        # on def un publisher        
+        #self.pub = rospy.Publisher('/datarecue', LaserScan , queue_size=10)
+       
     def callback(self,data):
         #Donne la distance min
         #Params:
         #data (data.range_min): information sur la dist min
+        #on récupère les distances entre les angles [-30,+30]
+        #enregistrer le premier tableau de data pour initialiser la distance à la table        
+
+        # No hand, table detection
+        if(self.flag == False) :        
+            self.tab_init = data.ranges[331:360] + data.ranges[:31]
         
-        if self.flag== False:
-            self.tab_table= data.ranges
-            rospy.loginfo(self.tab_table)
-            rospy.loginfo(len(self.tab_table))
-            self.flag=True  
-        #enregistrer le premier tableau de data
-        #tab_table= data.ranges
+        self.flag = True        
+        rospy.loginfo('TABLE:')            
+        rospy.loginfo(self.tab_init)
+        rospy.loginfo('taille table:')
+        rospy.loginfo(len(self.tab_init))
+        rospy.loginfo('distance à la table initialisée!')
         
+        #Hand detection
+        rospy.loginfo('Mets ta main frère si tu es joueur')
+        rospy.sleep(5.) 
+
+        self.tab_hand = data.ranges[331:360] + data.ranges[:31]
+        rospy.loginfo(self.tab_hand)
+        rospy.loginfo('taille table avec main:')
+        rospy.loginfo(len(self.tab_hand))
+        rospy.loginfo('distance à la table avec main initialisée!')
+
+        for i in range(0,len(self.tab_hand)):
+            if (self.tab_hand[i]- 0.005) < (self.tab_init[i] - 0.005):
+                if ( i!= 0 and self.tab_hand[i-1] < (self.tab_init[i-1] - 0.005)):
+                    if (i!=59 and self.tab_hand[i+1] < (self.tab_init[i+1] - 0.005)):
+        			  rospy.loginfo('MAIN DETECTEE')
+		        	#   rospy.loginfo(self.tab_hand[i])
+			        #   data_output.append([i,self.tab_hand[i]])
+            else :
+                rospy.loginfo('RIEN')            
+        
+
+        
+
+if __name__== '__main__':
+    c=Scan() #on instance scan par c donc c.flag
+    #while c.flag == True: #recuperation 1st valeur
+    #cd  self.tab_init=c.self.tab_init
+    rospy.spin()
+    
         #pas de la caméra
         #pas= ((data.angle_max)-(data.angle_min))/(data.angle_increment)
         #distmin=min(i for i in data.ranges if str(i) !="nan")
         #self.pub.publish(pas) envoyer info dans pipe
         #rospy.loginfo("I see dist_min %s", pas)
-        #rospy.loginfo(tab_table)
+        #rospy.loginfo(self.tab_doigt)
         
 
-if __name__== '__main__':
-    c=Scan() #on instance scan par c donc c.flag
-    rospy.sleep(1)
-    while c.flag == True: #recuperation 1st valeur
-        tab_table=c.tab_table
-        rospy.sleep(1)
-    rospy.spin()
-
-
+## To do : 
+# - créer un service qui demande la matrice des distances ( table seule, au démarrage du robot)
+# - créer un autre service qui demande la matrice des distances 

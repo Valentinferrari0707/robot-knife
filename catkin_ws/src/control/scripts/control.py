@@ -13,7 +13,8 @@ def publisher(pub):
 def control():
 
     rospy.init_node('control', anonymous=True)
-    pubControl = rospy.Publisher('/joint1_controller/command', Float64, queue_size=10)
+    pub
+    Control = rospy.Publisher('/joint1_controller/command', Float64, queue_size=10)
     rate = rospy.Rate(10) # 10hz
 
     publisher(pubControl)
