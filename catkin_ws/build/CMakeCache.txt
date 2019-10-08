@@ -269,6 +269,12 @@ beginner_tutorials_SOURCE_DIR:STATIC=/fs03/share/users/florent.cadot/home/Bureau
 //The directory containing a CMake configuration file for catkin.
 catkin_DIR:PATH=/opt/ros/indigo/share/catkin/cmake
 
+//Value Computed by CMake
+control_BINARY_DIR:STATIC=/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/build/control
+
+//Value Computed by CMake
+control_SOURCE_DIR:STATIC=/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/src/control
+
 //The directory containing a CMake configuration file for control_msgs.
 control_msgs_DIR:PATH=/opt/ros/indigo/share/control_msgs/cmake
 
