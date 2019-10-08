@@ -829,6 +829,110 @@ rosgraph_msgs_generate_messages_py/fast:
 .PHONY : rosgraph_msgs_generate_messages_py/fast
 
 #=============================================================================
+# Target rules for targets named geometry_msgs_generate_messages_cpp
+
+# Build rule for target.
+geometry_msgs_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 geometry_msgs_generate_messages_cpp
+.PHONY : geometry_msgs_generate_messages_cpp
+
+# fast build rule for target.
+geometry_msgs_generate_messages_cpp/fast:
+	$(MAKE) -f rplidar_ros/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make rplidar_ros/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
+.PHONY : geometry_msgs_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named geometry_msgs_generate_messages_lisp
+
+# Build rule for target.
+geometry_msgs_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 geometry_msgs_generate_messages_lisp
+.PHONY : geometry_msgs_generate_messages_lisp
+
+# fast build rule for target.
+geometry_msgs_generate_messages_lisp/fast:
+	$(MAKE) -f rplidar_ros/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make rplidar_ros/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build
+.PHONY : geometry_msgs_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named geometry_msgs_generate_messages_py
+
+# Build rule for target.
+geometry_msgs_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 geometry_msgs_generate_messages_py
+.PHONY : geometry_msgs_generate_messages_py
+
+# fast build rule for target.
+geometry_msgs_generate_messages_py/fast:
+	$(MAKE) -f rplidar_ros/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make rplidar_ros/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
+.PHONY : geometry_msgs_generate_messages_py/fast
+
+#=============================================================================
+# Target rules for targets named rplidarNode
+
+# Build rule for target.
+rplidarNode: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rplidarNode
+.PHONY : rplidarNode
+
+# fast build rule for target.
+rplidarNode/fast:
+	$(MAKE) -f rplidar_ros/CMakeFiles/rplidarNode.dir/build.make rplidar_ros/CMakeFiles/rplidarNode.dir/build
+.PHONY : rplidarNode/fast
+
+#=============================================================================
+# Target rules for targets named rplidarNodeClient
+
+# Build rule for target.
+rplidarNodeClient: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 rplidarNodeClient
+.PHONY : rplidarNodeClient
+
+# fast build rule for target.
+rplidarNodeClient/fast:
+	$(MAKE) -f rplidar_ros/CMakeFiles/rplidarNodeClient.dir/build.make rplidar_ros/CMakeFiles/rplidarNodeClient.dir/build
+.PHONY : rplidarNodeClient/fast
+
+#=============================================================================
+# Target rules for targets named sensor_msgs_generate_messages_cpp
+
+# Build rule for target.
+sensor_msgs_generate_messages_cpp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 sensor_msgs_generate_messages_cpp
+.PHONY : sensor_msgs_generate_messages_cpp
+
+# fast build rule for target.
+sensor_msgs_generate_messages_cpp/fast:
+	$(MAKE) -f rplidar_ros/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build.make rplidar_ros/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build
+.PHONY : sensor_msgs_generate_messages_cpp/fast
+
+#=============================================================================
+# Target rules for targets named sensor_msgs_generate_messages_lisp
+
+# Build rule for target.
+sensor_msgs_generate_messages_lisp: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 sensor_msgs_generate_messages_lisp
+.PHONY : sensor_msgs_generate_messages_lisp
+
+# fast build rule for target.
+sensor_msgs_generate_messages_lisp/fast:
+	$(MAKE) -f rplidar_ros/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make rplidar_ros/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build
+.PHONY : sensor_msgs_generate_messages_lisp/fast
+
+#=============================================================================
+# Target rules for targets named sensor_msgs_generate_messages_py
+
+# Build rule for target.
+sensor_msgs_generate_messages_py: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 sensor_msgs_generate_messages_py
+.PHONY : sensor_msgs_generate_messages_py
+
+# fast build rule for target.
+sensor_msgs_generate_messages_py/fast:
+	$(MAKE) -f rplidar_ros/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make rplidar_ros/CMakeFiles/sensor_msgs_generate_messages_py.dir/build
+.PHONY : sensor_msgs_generate_messages_py/fast
+
+#=============================================================================
 # Target rules for targets named actionlib_generate_messages_cpp
 
 # Build rule for target.
@@ -985,45 +1089,6 @@ diagnostic_msgs_generate_messages_py/fast:
 .PHONY : diagnostic_msgs_generate_messages_py/fast
 
 #=============================================================================
-# Target rules for targets named geometry_msgs_generate_messages_cpp
-
-# Build rule for target.
-geometry_msgs_generate_messages_cpp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 geometry_msgs_generate_messages_cpp
-.PHONY : geometry_msgs_generate_messages_cpp
-
-# fast build rule for target.
-geometry_msgs_generate_messages_cpp/fast:
-	$(MAKE) -f my_dynamixel_tutorial/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make my_dynamixel_tutorial/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
-.PHONY : geometry_msgs_generate_messages_cpp/fast
-
-#=============================================================================
-# Target rules for targets named geometry_msgs_generate_messages_lisp
-
-# Build rule for target.
-geometry_msgs_generate_messages_lisp: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 geometry_msgs_generate_messages_lisp
-.PHONY : geometry_msgs_generate_messages_lisp
-
-# fast build rule for target.
-geometry_msgs_generate_messages_lisp/fast:
-	$(MAKE) -f my_dynamixel_tutorial/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make my_dynamixel_tutorial/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build
-.PHONY : geometry_msgs_generate_messages_lisp/fast
-
-#=============================================================================
-# Target rules for targets named geometry_msgs_generate_messages_py
-
-# Build rule for target.
-geometry_msgs_generate_messages_py: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 geometry_msgs_generate_messages_py
-.PHONY : geometry_msgs_generate_messages_py
-
-# fast build rule for target.
-geometry_msgs_generate_messages_py/fast:
-	$(MAKE) -f my_dynamixel_tutorial/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make my_dynamixel_tutorial/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
-.PHONY : geometry_msgs_generate_messages_py/fast
-
-#=============================================================================
 # Target rules for targets named trajectory_msgs_generate_messages_cpp
 
 # Build rule for target.
@@ -1127,6 +1192,14 @@ help:
 	@echo "... rosgraph_msgs_generate_messages_cpp"
 	@echo "... rosgraph_msgs_generate_messages_lisp"
 	@echo "... rosgraph_msgs_generate_messages_py"
+	@echo "... geometry_msgs_generate_messages_cpp"
+	@echo "... geometry_msgs_generate_messages_lisp"
+	@echo "... geometry_msgs_generate_messages_py"
+	@echo "... rplidarNode"
+	@echo "... rplidarNodeClient"
+	@echo "... sensor_msgs_generate_messages_cpp"
+	@echo "... sensor_msgs_generate_messages_lisp"
+	@echo "... sensor_msgs_generate_messages_py"
 	@echo "... actionlib_generate_messages_cpp"
 	@echo "... actionlib_generate_messages_lisp"
 	@echo "... actionlib_generate_messages_py"
@@ -1139,9 +1212,6 @@ help:
 	@echo "... diagnostic_msgs_generate_messages_cpp"
 	@echo "... diagnostic_msgs_generate_messages_lisp"
 	@echo "... diagnostic_msgs_generate_messages_py"
-	@echo "... geometry_msgs_generate_messages_cpp"
-	@echo "... geometry_msgs_generate_messages_lisp"
-	@echo "... geometry_msgs_generate_messages_py"
 	@echo "... trajectory_msgs_generate_messages_cpp"
 	@echo "... trajectory_msgs_generate_messages_lisp"
 	@echo "... trajectory_msgs_generate_messages_py"
