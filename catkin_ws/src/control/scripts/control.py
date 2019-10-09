@@ -4,6 +4,18 @@
 import rospy
 from std_msgs.msg import String
 from std_msgs.msg import Float64
+from scan.srv import LidarDatas
+
+def getLidarDatas():
+    rospy.wait_for_service('lidar_datas')
+    try:
+        lidar_datas = rospy.ServiceProxy('lidar_datas', LidarDatas)
+        resp1 = lidar_datas('chdsb')
+        rospy.loginfo('reponse du service:')
+        rospy.loginfo(resp1)
+        return resp1.scanDataResponse
+    except rospy.ServiceException, e:
+        print "Service call failed: %s"%e
 
 def publisher(pub):
     # rospy.loginfo(  .get_caller_id() + 'I heard %s', data.data)
@@ -13,11 +25,11 @@ def publisher(pub):
 def control():
 
     rospy.init_node('control', anonymous=True)
-    pub
-    Control = rospy.Publisher('/joint1_controller/command', Float64, queue_size=10)
-    rate = rospy.Rate(10) # 10hz
+    getLidarDatas()
+    # Control = rospy.Publisher('/joint1_controller/command', Float64, queue_size=10)
+    # rate = rospy.Rate(10) # 10hz
 
-    publisher(pubControl)
+    # publisher(pubControl)
     # while not rospy.is_shutdown():
     #     pubControl.publish(1.5)
     #     rate.sleep()

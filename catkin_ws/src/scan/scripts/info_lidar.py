@@ -4,19 +4,26 @@
 import rospy
 from std_msgs.msg import Float32
 from sensor_msgs.msg import LaserScan
+from scan.srv import LidarDatas, LidarDatasResponse
 
 class Scan:
+
+    def handle_lidar_datas(req):
+        rospy.loginfo('LidarDatas service is working !')
+        return self.LidarDatasResponse(1)
+
     def __init__(self):
         # Gere toute la config de ROS (initialisation du node)
         rospy.init_node('scan_values', anonymous=True)
         self.flag=False  
         rospy.sleep(2.)        
         print "init OK"
-        rospy.Subscriber('/scan', LaserScan , self.callback)
-
+        # rospy.Subscriber('/scan', LaserScan , self.callback)
+        s = rospy.Service('lidar_datas', LidarDatas, self.handle_lidar_datas)
         # on def un publisher        
         #self.pub = rospy.Publisher('/datarecue', LaserScan , queue_size=10)
-       
+    
+
     def callback(self,data):
         #Donne la distance min
         #Params:
@@ -27,13 +34,13 @@ class Scan:
         # No hand, table detection
         if(self.flag == False) :        
             self.tab_init = data.ranges[331:360] + data.ranges[:31]
-        
-        self.flag = True        
-        rospy.loginfo('TABLE:')            
-        rospy.loginfo(self.tab_init)
-        rospy.loginfo('taille table:')
-        rospy.loginfo(len(self.tab_init))
-        rospy.loginfo('distance à la table initialisée!')
+            self.flag = True        
+            rospy.loginfo('TABLE:')            
+            rospy.loginfo(self.tab_init)
+            rospy.loginfo('taille table:')
+            rospy.loginfo(len(self.tab_init))
+            rospy.loginfo('distance à la table initialisée!')
+
         
         #Hand detection
         rospy.loginfo('Mets ta main frère si tu es joueur')

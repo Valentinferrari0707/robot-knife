@@ -1,0 +1,3 @@
+string scanDataRequest
+---
+int64[] scanDataResponse
