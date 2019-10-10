@@ -4,9 +4,9 @@
     <node name="controller_spawner" pkg="dynamixel_controllers" type="controller_spawner.py"
           args="--manager=dxl_manager
                 --port pan_tilt_port
-                joint1_controller                       
-                joint2_controller
-                joint3_controller
+                motor1_controller                       
+                motor2_controller
+                motor3_controller
                 "
           output="screen"/>
 </launch>

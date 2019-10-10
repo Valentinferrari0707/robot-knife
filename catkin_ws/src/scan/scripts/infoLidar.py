@@ -21,7 +21,7 @@ def scan():
     global tab_init
     tab_init = []
     global tab_hand
-    tab_init = []
+    tab_hand = []
     rospy.sleep(2.) 
     rospy.loginfo ('init OK, launching /scan subscribtion and lidar_datas service')
     rospy.Subscriber('/scan', LaserScan , callback)
