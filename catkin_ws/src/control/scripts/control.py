@@ -7,15 +7,30 @@ from std_msgs.msg import Float64
 from scan.srv import LidarDatas
 
 def getLidarDatas():
+    # Get datas when no hand
+    # rospy.wait_for_service('lidar_datas')
+    # try:
+    #     lidar_datas = rospy.ServiceProxy('lidar_datas', LidarDatas)
+    #     resp = lidar_datas('chdsb')
+    #     rospy.loginfo('reponse du service:')
+    #     rospy.loginfo(resp)
+    #     return resp.scanDataResponse
+    # except rospy.ServiceException, e:
+    #     print "Service call failed: %s"%e
+
+    # Get datas when hand
+    rospy.sleep(3.)
+    rospy.loginfo('get datas with hand')
     rospy.wait_for_service('lidar_datas')
     try:
         lidar_datas = rospy.ServiceProxy('lidar_datas', LidarDatas)
-        resp1 = lidar_datas('chdsb')
+        resp = lidar_datas('Give me datas with hand')
         rospy.loginfo('reponse du service:')
-        rospy.loginfo(resp1)
-        return resp1.scanDataResponse
+        rospy.loginfo(resp)
+        return resp.scanDataHand
     except rospy.ServiceException, e:
         print "Service call failed: %s"%e
+
 
 def publisher(pub):
     # rospy.loginfo(  .get_caller_id() + 'I heard %s', data.data)
@@ -26,7 +41,8 @@ def control():
 
     rospy.init_node('control', anonymous=True)
     getLidarDatas()
-    # Control = rospy.Publisher('/joint1_controller/command', Float64, queue_size=10)
+    rospy.sleep(3.)
+    # control = rospy.Publisher('/joint1_controller/command', Float64, queue_size=10)
     # rate = rospy.Rate(10) # 10hz
 
     # publisher(pubControl)

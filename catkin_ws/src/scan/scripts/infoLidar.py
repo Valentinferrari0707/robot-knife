@@ -8,60 +8,81 @@ from scan.srv import LidarDatas, LidarDatasResponse
 
 def handle_lidar_datas(req):
     rospy.loginfo('LidarDatas service is working !')
-    # return LidarDatasResponse(tab_init)
-    return LidarDatasResponse([1,2,3])
+    global tab_init
+    global tab_hand
+    return LidarDatasResponse(tab_init,tab_hand)
+
 
 def scan():
     # Gere toute la config de ROS (initialisation du node)
     rospy.init_node('scan_values', anonymous=True)
-    # flag=False
-      
+    global flag
+    flag = False
+    global tab_init
+    tab_init = []
+    global tab_hand
+    tab_init = []
     rospy.sleep(2.) 
     rospy.loginfo ('init OK, launching /scan subscribtion and lidar_datas service')
-    # rospy.Subscriber('/scan', LaserScan , callback)
-    s = rospy.Service('lidar_datas', LidarDatas, handle_lidar_datas)
+    rospy.Subscriber('/scan', LaserScan , callback)
+    rospy.Service('lidar_datas', LidarDatas, handle_lidar_datas)
+
     # on def un publisher        
     #pub = rospy.Publisher('/datarecue', LaserScan , queue_size=10)
     rospy.spin()
 
-# def callback(data):
-#     #Donne la distance min
-#     #Params:
-#     #data (data.range_min): information sur la dist min
-#     #on récupère les distances entre les angles [-30,+30]
-#     #enregistrer le premier tableau de data pour initialiser la distance à la table        
+def callback(data):
+    #Donne la distance min
+    #Params:
+    #data (data.range_min): information sur la dist min
+    #on récupère les distances entre les angles [-30,+30]
+    #enregistrer le premier tableau de data pour initialiser la distance à la table        
 
-#     # No hand, table detection
-#     if(flag == False) :        
-#         tab_init = data.ranges[331:360] + data.ranges[:31]
-#         rospy.loginfo('TABLE:')            
-#         rospy.loginfo(tab_init)
-#         rospy.loginfo('taille table:')
-#         rospy.loginfo(len(tab_init))
-#         rospy.loginfo('distance à la table initialisée!')
+    # No hand, table detection
+    global  flag
+    global tab_init
+    global tab_hand
+    if flag == False :        
+        tab_init = data.ranges[331:360] + data.ranges[:31]
+        rospy.loginfo('TABLE:')            
+        rospy.loginfo(tab_init)
+        # rospy.loginfo('taille table:')
+        # rospy.loginfo(len(tab_init))
+        rospy.loginfo('distance à la table initialisée!')
+        print 'wesh la premiere valeur'
+        print tab_init[29]
+        flag = True
+        rospy.loginfo('Mets ta main frère si tu es joueur')
+        rospy.sleep(5.)  
+
+    #Hand detection
+    if flag == True :
+        tab_hand = data.ranges[331:360] + data.ranges[:31]
+        rospy.loginfo('TABLE Hand:')            
+        rospy.loginfo(tab_hand)
+        rospy.loginfo('taille table avec main:')
+        rospy.loginfo(len(tab_hand))
+        rospy.loginfo('distance à la table avec main initialisée!')
+        for i in range(0,len(tab_hand)):
+            if (tab_hand[i]) < (tab_init[i] - 0.009):
+                print('MainDetectee')                
+            if (tab_hand[i]) < (tab_init[i] + 0.009): #or (tab_hand[i]) > (tab_init[i]+0.05) :
+                # if ( i!= 0 and tab_hand[i-1] < (tab_init[i-1] - 0.005)):
+                #      if (i!=59 and tab_hand[i+1] < (tab_init[i+1] - 0.005)):
+                        # rospy.loginfo('MAIN DETECTEE')
+                print('MainDetectee')
+                        # rospy.loginfo(tab_hand[i])
+                    #   data_output.append([i,tab_hand[i]])
+            else :
+                print('RIEN')            
+    rospy.sleep(2.)  
+        # print tab_hand
     
-#     flag = True        
 
-    
-#     #Hand detection
-#     rospy.loginfo('Mets ta main frère si tu es joueur')
-#     rospy.sleep(5.) 
 
-#     tab_hand = data.ranges[331:360] + data.ranges[:31]
-#     rospy.loginfo(tab_hand)
-#     rospy.loginfo('taille table avec main:')
-#     rospy.loginfo(len(tab_hand))
-#     rospy.loginfo('distance à la table avec main initialisée!')
 
-#     for i in range(0,len(tab_hand)):
-#         if (tab_hand[i]- 0.005) < (tab_init[i] - 0.005):
-#             if ( i!= 0 and tab_hand[i-1] < (tab_init[i-1] - 0.005)):
-#                 if (i!=59 and tab_hand[i+1] < (tab_init[i+1] - 0.005)):
-#                     rospy.loginfo('MAIN DETECTEE')
-#                 #   rospy.loginfo(tab_hand[i])
-#                 #   data_output.append([i,tab_hand[i]])
-#         else :
-#             rospy.loginfo('RIEN')            
+
+   
     
 
         

@@ -132,13 +132,14 @@ import struct
 
 
 class LidarDatasResponse(genpy.Message):
-  _md5sum = "1de8df23844c07a250244a4109cfb9ed"
+  _md5sum = "c81553d1e358520792d34f1257625666"
   _type = "scan/LidarDatasResponse"
   _has_header = False #flag to mark the presence of a Header object
-  _full_text = """int64[] scanDataResponse
+  _full_text = """float64[] scanDataResponse
+float64[] scanDataHand
 """
-  __slots__ = ['scanDataResponse']
-  _slot_types = ['int64[]']
+  __slots__ = ['scanDataResponse','scanDataHand']
+  _slot_types = ['float64[]','float64[]']
 
   def __init__(self, *args, **kwds):
     """
@@ -148,7 +149,7 @@ class LidarDatasResponse(genpy.Message):
     changes.  You cannot mix in-order arguments and keyword arguments.
 
     The available fields are:
-       scanDataResponse
+       scanDataResponse,scanDataHand
 
     :param args: complete set of field values, in .msg order
     :param kwds: use keyword arguments corresponding to message field names
@@ -159,8 +160,11 @@ class LidarDatasResponse(genpy.Message):
       #message fields cannot be None, assign default values for those that are
       if self.scanDataResponse is None:
         self.scanDataResponse = []
+      if self.scanDataHand is None:
+        self.scanDataHand = []
     else:
       self.scanDataResponse = []
+      self.scanDataHand = []
 
   def _get_types(self):
     """
@@ -176,8 +180,12 @@ class LidarDatasResponse(genpy.Message):
     try:
       length = len(self.scanDataResponse)
       buff.write(_struct_I.pack(length))
-      pattern = '<%sq'%length
+      pattern = '<%sd'%length
       buff.write(struct.pack(pattern, *self.scanDataResponse))
+      length = len(self.scanDataHand)
+      buff.write(_struct_I.pack(length))
+      pattern = '<%sd'%length
+      buff.write(struct.pack(pattern, *self.scanDataHand))
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -191,10 +199,17 @@ class LidarDatasResponse(genpy.Message):
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
-      pattern = '<%sq'%length
+      pattern = '<%sd'%length
       start = end
       end += struct.calcsize(pattern)
       self.scanDataResponse = struct.unpack(pattern, str[start:end])
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      pattern = '<%sd'%length
+      start = end
+      end += struct.calcsize(pattern)
+      self.scanDataHand = struct.unpack(pattern, str[start:end])
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -209,8 +224,12 @@ class LidarDatasResponse(genpy.Message):
     try:
       length = len(self.scanDataResponse)
       buff.write(_struct_I.pack(length))
-      pattern = '<%sq'%length
+      pattern = '<%sd'%length
       buff.write(self.scanDataResponse.tostring())
+      length = len(self.scanDataHand)
+      buff.write(_struct_I.pack(length))
+      pattern = '<%sd'%length
+      buff.write(self.scanDataHand.tostring())
     except struct.error as se: self._check_types(struct.error("%s: '%s' when writing '%s'" % (type(se), str(se), str(locals().get('_x', self)))))
     except TypeError as te: self._check_types(ValueError("%s: '%s' when writing '%s'" % (type(te), str(te), str(locals().get('_x', self)))))
 
@@ -225,10 +244,17 @@ class LidarDatasResponse(genpy.Message):
       start = end
       end += 4
       (length,) = _struct_I.unpack(str[start:end])
-      pattern = '<%sq'%length
+      pattern = '<%sd'%length
       start = end
       end += struct.calcsize(pattern)
-      self.scanDataResponse = numpy.frombuffer(str[start:end], dtype=numpy.int64, count=length)
+      self.scanDataResponse = numpy.frombuffer(str[start:end], dtype=numpy.float64, count=length)
+      start = end
+      end += 4
+      (length,) = _struct_I.unpack(str[start:end])
+      pattern = '<%sd'%length
+      start = end
+      end += struct.calcsize(pattern)
+      self.scanDataHand = numpy.frombuffer(str[start:end], dtype=numpy.float64, count=length)
       return self
     except struct.error as e:
       raise genpy.DeserializationError(e) #most likely buffer underfill
@@ -236,6 +262,6 @@ class LidarDatasResponse(genpy.Message):
 _struct_I = genpy.struct_I
 class LidarDatas(object):
   _type          = 'scan/LidarDatas'
-  _md5sum = '2755e7f85ad4180971117eb6fc23c8d7'
+  _md5sum = 'b24f18b58a2ea88af3a36911a1be8ff0'
   _request_class  = LidarDatasRequest
   _response_class = LidarDatasResponse

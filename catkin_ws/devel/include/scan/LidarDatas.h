@@ -40,7 +40,7 @@ template<>
 struct MD5Sum< ::scan::LidarDatas > {
   static const char* value()
   {
-    return "2755e7f85ad4180971117eb6fc23c8d7";
+    return "b24f18b58a2ea88af3a36911a1be8ff0";
   }
 
   static const char* value(const ::scan::LidarDatas&) { return value(); }

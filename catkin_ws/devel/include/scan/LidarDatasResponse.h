@@ -24,17 +24,22 @@ struct LidarDatasResponse_
   typedef LidarDatasResponse_<ContainerAllocator> Type;
 
   LidarDatasResponse_()
-    : scanDataResponse()  {
+    : scanDataResponse()
+    , scanDataHand()  {
     }
   LidarDatasResponse_(const ContainerAllocator& _alloc)
-    : scanDataResponse(_alloc)  {
+    : scanDataResponse(_alloc)
+    , scanDataHand(_alloc)  {
   (void)_alloc;
     }
 
 
 
-   typedef std::vector<int64_t, typename ContainerAllocator::template rebind<int64_t>::other >  _scanDataResponse_type;
+   typedef std::vector<double, typename ContainerAllocator::template rebind<double>::other >  _scanDataResponse_type;
   _scanDataResponse_type scanDataResponse;
+
+   typedef std::vector<double, typename ContainerAllocator::template rebind<double>::other >  _scanDataHand_type;
+  _scanDataHand_type scanDataHand;
 
 
 
@@ -113,12 +118,12 @@ struct MD5Sum< ::scan::LidarDatasResponse_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "1de8df23844c07a250244a4109cfb9ed";
+    return "c81553d1e358520792d34f1257625666";
   }
 
   static const char* value(const ::scan::LidarDatasResponse_<ContainerAllocator>&) { return value(); }
-  static const uint64_t static_value1 = 0x1de8df23844c07a2ULL;
-  static const uint64_t static_value2 = 0x50244a4109cfb9edULL;
+  static const uint64_t static_value1 = 0xc81553d1e3585207ULL;
+  static const uint64_t static_value2 = 0x92d34f1257625666ULL;
 };
 
 template<class ContainerAllocator>
@@ -137,7 +142,8 @@ struct Definition< ::scan::LidarDatasResponse_<ContainerAllocator> >
 {
   static const char* value()
   {
-    return "int64[] scanDataResponse\n\
+    return "float64[] scanDataResponse\n\
+float64[] scanDataHand\n\
 ";
   }
 
@@ -157,6 +163,7 @@ namespace serialization
     template<typename Stream, typename T> inline static void allInOne(Stream& stream, T m)
     {
       stream.next(m.scanDataResponse);
+      stream.next(m.scanDataHand);
     }
 
     ROS_DECLARE_ALLINONE_SERIALIZER
@@ -179,7 +186,13 @@ struct Printer< ::scan::LidarDatasResponse_<ContainerAllocator> >
     for (size_t i = 0; i < v.scanDataResponse.size(); ++i)
     {
       s << indent << "  scanDataResponse[" << i << "]: ";
-      Printer<int64_t>::stream(s, indent + "  ", v.scanDataResponse[i]);
+      Printer<double>::stream(s, indent + "  ", v.scanDataResponse[i]);
+    }
+    s << indent << "scanDataHand[]" << std::endl;
+    for (size_t i = 0; i < v.scanDataHand.size(); ++i)
+    {
+      s << indent << "  scanDataHand[" << i << "]: ";
+      Printer<double>::stream(s, indent + "  ", v.scanDataHand[i]);
     }
   }
 };
