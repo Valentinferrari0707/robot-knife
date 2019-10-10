@@ -1,0 +1,10 @@
+<!-- -*- mode: XML -*- -->
+
+<launch>
+    <include file="$(find my_dynamixel_tutorial)/launch/controller_manager.launch"/>
+    <include file="$(find my_dynamixel_tutorial)/launch/start_meta_controller.launch"/>
+    <include file="$(find rplidar_ros)/launch/rplidar.launch"/>
+    <include file="$(find scan)/launch/scan.launch"/>
+    <node name="control" pkg="control" type="control.py" required="true" output="screen">
+    </node>
+</launch>

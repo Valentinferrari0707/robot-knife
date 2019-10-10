@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 
 import rospy
-from std_msgs.msg import Float32
-from sensor_msgs.msg import LaserScan
+from std_msgs.msg import Float32 
+from sensor_msgs.msg import LaserScan 
 from scan.srv import LidarDatas, LidarDatasResponse
 
 def handle_lidar_datas(req):
@@ -44,13 +44,13 @@ def callback(data):
     global tab_hand
     if flag == False :        
         tab_init = data.ranges[331:360] + data.ranges[:31]
-        rospy.loginfo('TABLE:')            
-        rospy.loginfo(tab_init)
-        # rospy.loginfo('taille table:')
-        # rospy.loginfo(len(tab_init))
-        rospy.loginfo('distance à la table initialisée!')
-        print 'wesh la premiere valeur'
-        print tab_init[29]
+        # rospy.loginfo('TABLE:')            
+        # rospy.loginfo(tab_init)
+        # # rospy.loginfo('taille table:')
+        # # rospy.loginfo(len(tab_init))
+        # rospy.loginfo('distance à la table initialisée!')
+        # print 'wesh la premiere valeur'
+        # print tab_init[29]
         flag = True
         rospy.loginfo('Mets ta main frère si tu es joueur')
         rospy.sleep(5.)  
@@ -58,11 +58,11 @@ def callback(data):
     #Hand detection
     if flag == True :
         tab_hand = data.ranges[331:360] + data.ranges[:31]
-        rospy.loginfo('TABLE Hand:')            
-        rospy.loginfo(tab_hand)
-        rospy.loginfo('taille table avec main:')
-        rospy.loginfo(len(tab_hand))
-        rospy.loginfo('distance à la table avec main initialisée!')
+        # rospy.loginfo('TABLE Hand:')            
+        # rospy.loginfo(tab_hand)
+        # rospy.loginfo('taille table avec main:')
+        # rospy.loginfo(len(tab_hand))
+        # rospy.loginfo('distance à la table avec main initialisée!')
         for i in range(0,len(tab_hand)):
             if (tab_hand[i]) < (tab_init[i] - 0.009):
                 print('MainDetectee')                

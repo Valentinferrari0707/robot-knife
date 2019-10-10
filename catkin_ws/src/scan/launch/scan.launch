@@ -1,0 +1,6 @@
+<!-- -*- mode: XML -*- -->
+
+<launch>
+    <node name="infoLidar" pkg="scan" type="infoLidar.py" required="true" output="screen">
+    </node>
+</launch>
