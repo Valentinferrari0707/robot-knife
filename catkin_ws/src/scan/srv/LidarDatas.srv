@@ -1,0 +1,4 @@
+string scanDataRequest
+---
+float64[] scanDataResponse
+float64[] scanDataHand

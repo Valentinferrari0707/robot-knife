@@ -1,2 +1,2 @@
-beginner_tutorials:dynamixel_motor/dynamixel_controllers:dynamixel_motor/dynamixel_driver:dynamixel_motor/dynamixel_motor:dynamixel_motor/dynamixel_msgs:dynamixel_motor/dynamixel_tutorials:mini_projet:my_dynamixel_tutorial:rplidar_ros:scan
+beginner_tutorials:control:dynamixel_motor/dynamixel_controllers:dynamixel_motor/dynamixel_driver:dynamixel_motor/dynamixel_motor:dynamixel_motor/dynamixel_msgs:dynamixel_motor/dynamixel_tutorials:my_dynamixel_tutorial:rplidar_ros:scan
 -DCATKIN_DEVEL_PREFIX=/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/install -G Unix Makefiles

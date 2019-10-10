@@ -3,6 +3,6 @@ prefix=/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/install
 Name: scan
 Description: Description of scan
 Version: 0.0.0
-Cflags: 
+Cflags: -I/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/install/include
 Libs: -L/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/install/lib 
-Requires: 
+Requires: message_runtime
