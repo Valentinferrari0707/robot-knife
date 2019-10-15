@@ -373,12 +373,6 @@ message_generation_DIR:PATH=/opt/ros/indigo/share/message_generation/cmake
 message_runtime_DIR:PATH=/opt/ros/indigo/share/message_runtime/cmake
 
 //Value Computed by CMake
-mini_projet_BINARY_DIR:STATIC=/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/build/mini_projet
-
-//Value Computed by CMake
-mini_projet_SOURCE_DIR:STATIC=/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/src/mini_projet
-
-//Value Computed by CMake
 my_dynamixel_tutorial_BINARY_DIR:STATIC=/fs03/share/users/florent.cadot/home/Bureau/Proto/catkin_ws/build/my_dynamixel_tutorial
 
 //Value Computed by CMake
