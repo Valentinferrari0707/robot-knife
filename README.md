@@ -2,7 +2,9 @@
 Created on Thu Oct 10 10:58:50 2019
 @author: clara.bouvard, florent.cadot, valentin.ferrari
 """
-
+    ``` 
+    source devel/setup.bash
+    ```
 # HOW TO BUILD OUR PROJECT
 
     1) Clone this project
