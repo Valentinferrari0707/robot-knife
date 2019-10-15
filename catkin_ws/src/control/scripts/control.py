@@ -9,7 +9,7 @@ from std_msgs.msg import Float64
 from std_msgs.msg import Bool
 from scan.srv import LidarDatas
 
-#Dans le cas où le lidar ne marcherait pas 
+#Positions des moteurs envoyées en dur 
 def demo():
     seqMotion =[[0,0.4,-0.9],[1.3,1,-1],[1.3,0.2,-1.1],[1.3,0.4,-0.9],[1.5,0.4,-0.9],[1.5,0.2,-1.1],[1.5,0.4,-0.9],[1.7,0.4,-1],[1.7,0.2,-1.1],[1.7,0.4,-0.9],[1.9,0.4,-1],[1.9,0.2,-1.1],[1.9,0.4,-1],[2.1,0.4,-1],[2.1,0.2,-1.1],[2.1,0.4,-1],[0,0.4,-0.9]]
     motorsMotion(seqMotion)    
@@ -25,21 +25,19 @@ def handle_start(data):
         motorsMotion(seqMotorsAngles)
         # demo()
 
-#Utilise un service pour obtenir les donées du lidar
+#Utilise le service 'lidar_data' pour obtenir les donées du lidar
 def getLidarDatas():
-
     rospy.sleep(3.)
     rospy.loginfo('get datas with hand')
     rospy.wait_for_service('lidar_datas')
     try:
         lidar_datas = rospy.ServiceProxy('lidar_datas', LidarDatas)
-        resp = lidar_datas('Give me datas with hand')
-        # rospy.loginfo('reponse du service:')
+        resp = lidar_datas('Lidar give me some datas')
         return resp
     except rospy.ServiceException, e:
         print "Service call failed: %s"%e
 
-#Bouge chaque moteur grâce à des commandes en angle
+#Bouge chaque moteur grâce à des commandes en angle, en publiant dans leurs topics respectifs
 def move_motors(angleM1,angleM2,angleM3):
     motor1Pub = rospy.Publisher('/motor1_controller/command', Float64, queue_size=10)
     motor2Pub = rospy.Publisher('/motor2_controller/command', Float64, queue_size=10)
@@ -50,8 +48,21 @@ def move_motors(angleM1,angleM2,angleM3):
     motor3Pub.publish(angleM3)
     rospy.sleep(1.)
 
+#Appelle la fonction qui bouge chaque moteur pour chaque valeur d'angle
+def motorsMotion(seqMotorsAngles):
+    global start_flag
+    print(seqMotorsAngles)
+    if(len(seqMotorsAngles)!=0):
+        for i in range (0,len(seqMotorsAngles)):
+            move_motors(seqMotorsAngles[i][0],seqMotorsAngles[i][1],seqMotorsAngles[i][2])
+            # rospy.sleep(1.)
+    else:
+        print('motion sequence vide !')
+    start_flag = False #Permet de recommencer une nouvelle partie en approchant sa main du télémètre
 
-#A finir ! Traite les donées reçues par le lidar pour générer une séquence de liste d'angles (pour chaque moteur)   
+
+#Traite les donées reçues par le lidar pour générer une séquence de liste d'angles pour commander les moteurs
+#Ne marche pas
 def processLidarDatas(datasLidar):
     tab_init = datasLidar.scanDataResponse
     tab_hand = datasLidar.scanDataHand
@@ -69,13 +80,7 @@ def processLidarDatas(datasLidar):
                         tab_hand_x.append([i,tab_hand[i]])
                     else:
                         tab_hand_x.append([i+299,tab_hand[i]]) #correspondance angle 30° avec 329  
-    # print("tab_init")    
-    # print(tab_init)
-    # print("tab_hand")
-    # print(tab_hand)
-    # print("tab_hand_x")
-    # print(tab_hand_x)
-
+   
     for j in range(0,len(tab_hand_x)):
         # print("values in process")
         # print(tab_hand_x[j][0])
@@ -114,17 +119,7 @@ def processLidarDatas(datasLidar):
     arrayMotorsAngle.append([0,0.4,-0.9])
     return arrayMotorsAngle
 
-#Publie dans les topics des moteurs pour les déplacer
-def motorsMotion(seqMotorsAngles):
-    global start_flag
-    print(seqMotorsAngles)
-    if(len(seqMotorsAngles)!=0):
-        for i in range (0,len(seqMotorsAngles)):
-            move_motors(seqMotorsAngles[i][0],seqMotorsAngles[i][1],seqMotorsAngles[i][2])
-            # rospy.sleep(1.)
-    else:
-        print('motion sequence vide !')
-    start_flag = False #Permet de recommencer une nouvelle partie en approchant sa main du télémètre
+
 
 def control():
     rospy.sleep(4.)
