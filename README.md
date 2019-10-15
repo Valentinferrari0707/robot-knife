@@ -1,11 +1,9 @@
-# -*- coding: utf-8 -*-
 """
 Created on Thu Oct 10 10:58:50 2019
-
 @author: clara.bouvard, florent.cadot, valentin.ferrari
 """
 
-HOW TO BUILD OUR PROJECT
+# HOW TO BUILD OUR PROJECT
 
     1) Clone this project
     2) Go to catkin's workspace "cd catkin_ws"
@@ -16,7 +14,7 @@ HOW TO BUILD OUR PROJECT
     ```bash git clone https://github.com/Slamtec/rplidar_ros```
     ```bash git clone https://github.com/arebgun/dynamixel_motor```
 
-HOW TO RUN OUR PROJECT
+# HOW TO RUN OUR PROJECT
     
     Follow "HOW TO BUILD OUR PROJECT"
     Connect Dynamixels motors and RPlidar
