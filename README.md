@@ -47,18 +47,28 @@ Connect Dynamixels motors and RPlidar
 
 ### 1- Dynamixel Motors
 
- roslaunch my_dynamixel_tutorial controller_manager.launch
+```
+  roslaunch my_dynamixel_tutorial controller_manager.launch
+```
+
  It should recognize each motors, if it doesn't work check PORT ( default PORT: "/dev/ttyACM0")
  In another terminal : 
 
+```
  roslaunch my_dynamixel_tutorial start_meta_controller.launch        
+```
  If problems: Check Motors Ids in tilt.yaml 
 
  Test Motor 1: 
+```
  rostopic pub -1 /motor1_controller/command std_msgs/Float64 -- 1.5
+```
 
- Test Motor 2: 
+
+ Test Motor 2:
+```
  rostopic pub -1 /motor2_controller/command std_msgs/Float64 -- 1.5
+```
 
  Test Motor 3: 
  rostopic pub -1 /motor3_controller/command std_msgs/Float64 -- 1.5
@@ -66,26 +76,34 @@ Connect Dynamixels motors and RPlidar
 
 ### 2- rplidar_ros and scan
 
- roslaunch rplidar_ros rplidar.launch
-
+```
+roslaunch rplidar_ros rplidar.launch
+```
+```
  roslaunch scan scan.launch 
+```
 
 
 ### 3- Full Project
  Starting the telemeter measure node:
  In one terminal : 
-
- roscore
-
+```
+roscore
+```
+ 
  In another: 
-
+```
  rosrun rosserial_arduino serial_node.py _port:=/dev/ttyUSB0
+```
+
 
  ** Be careful to the port! 
 
  Starting the game: 
 
+```
  roslaunch control control.launch
+```
  In fact, control.launch will launch:
      - rp_lidar.launch
      - dynamixel_motor.launch
